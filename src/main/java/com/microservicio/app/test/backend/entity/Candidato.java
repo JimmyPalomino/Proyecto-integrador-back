@@ -46,6 +46,10 @@ public class Candidato {
 	private String direccion;
 	@Column(name = "redes_social")
 	private String redSocial;
+
+	private String titulo;
+
+	private String descripcion;
 	
 
 }

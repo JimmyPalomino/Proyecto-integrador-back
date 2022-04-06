@@ -2,9 +2,9 @@ insert into tipo_documento (nombre) values('DNI');
 insert into tipo_documento (nombre) values('LE');
 insert into tipo_documento (nombre) values('LC');
 
-insert into candidato (nombre,apellido,tipo,numero_documento, direccion, redes_social) values('pepe','Perez','1','34123456','calle falsa 123','linkedin.com');
-insert into candidato (nombre,apellido,tipo,numero_documento, direccion, redes_social) values('pepa','Perez','1','34123789','calle falsa 123','linkedin.com');
-insert into candidato (nombre,apellido,tipo,numero_documento, direccion, redes_social) values('Lucas','Perez','1','34789123','calle falsa 123','linkedin.com');
+insert into candidato (nombre,apellido,tipo,numero_documento, direccion, redes_social, titulo, descripcion) values('pepe','Perez','1','34123456','calle falsa 123','linkedin.com','Analista de sistemas','desarrollador en java en proyecto de facebook');
+insert into candidato (nombre,apellido,tipo,numero_documento, direccion, redes_social, titulo, descripcion) values('pepa','Perez','1','34123789','calle falsa 123','linkedin.com','Analista de sistemas','desarrollador en java en proyecto de facebook');
+insert into candidato (nombre,apellido,tipo,numero_documento, direccion, redes_social, titulo, descripcion) values('Lucas','Perez','1','34789123','calle falsa 123','linkedin.com','Analista de sistemas','desarrollador en java en proyecto de facebook');
 
 insert into tecnologia (nombre,version) values ('Java',8);
 insert into tecnologia (nombre,version) values ('maven',10);

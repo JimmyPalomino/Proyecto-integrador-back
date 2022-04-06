@@ -21,6 +21,8 @@ public class CandidatoDto {
 	private String numDocumento;
 	private String direccion;
 	private String redSocial;
+	private String titulo;
+	private String descripcion;
 	
 	public CandidatoDto(Candidato c) {
 		
@@ -31,6 +33,8 @@ public class CandidatoDto {
 		this.numDocumento = c.getNumDocumento();
 		this.direccion = c.getDireccion();
 		this.redSocial = c.getRedSocial();
+		this.titulo = c.getTitulo();
+		this.descripcion = c.getDescripcion();
 	}
 
 }

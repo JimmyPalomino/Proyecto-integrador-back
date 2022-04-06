@@ -16,11 +16,13 @@ public class CandidatoCrearDto {
 	private String numDocumento;
 	private String direccion;
 	private String redSocial;
+	private String titulo;
+	private String descripcion;
 		
 	public Candidato toCandidato()
 	{
 		return new Candidato(this.getId(), this.getNombre(), this.getApellido(), this.getTipo(),
-				this.getNumDocumento(), this.getDireccion(), this.getRedSocial());
+				this.getNumDocumento(), this.getDireccion(), this.getRedSocial(),this.getTitulo(), this.getDescripcion());
 	}
 
 }

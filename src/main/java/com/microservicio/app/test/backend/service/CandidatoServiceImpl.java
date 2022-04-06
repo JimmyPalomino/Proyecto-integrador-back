@@ -31,7 +31,8 @@ public class CandidatoServiceImpl implements CandidatoService {
 		List<Candidato> candidatos = candidatoRepository.findAll();
 
 		return candidatos.stream()
-				.map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo(), c.getNumDocumento(), c.getDireccion(), c.getRedSocial()))
+				.map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo(), c.getNumDocumento(), c.getDireccion(),
+						c.getRedSocial(), c.getTitulo(), c.getDescripcion()))
 				.collect(Collectors.toList());
 
 	}
@@ -39,7 +40,8 @@ public class CandidatoServiceImpl implements CandidatoService {
 	@Override
 	public CandidatoDto findById(Long id) {
 
-		Optional<CandidatoDto> candidato = candidatoRepository.findById(id).map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo() , c.getNumDocumento(), c.getDireccion(), c.getRedSocial()));
+		Optional<CandidatoDto> candidato = candidatoRepository.findById(id).map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo() , c.getNumDocumento(), c.getDireccion(),
+				c.getRedSocial(), c.getTitulo(), c.getDescripcion()));
 		
 		if (candidato.isEmpty()) {
 			throw new NoSuchElementException("No existe candidato con el id: " + id);
@@ -72,7 +74,9 @@ public class CandidatoServiceImpl implements CandidatoService {
 	public void deleteCandidato(Long id) {
 
 		CandidatoDto candidatoDto = this.findById(id);
-		Candidato candidato = new Candidato(candidatoDto.getId(), candidatoDto.getNombre(), candidatoDto.getApellido(), candidatoDto.getTipo(), candidatoDto.getNumDocumento(), candidatoDto.getDireccion(), candidatoDto.getRedSocial());
+		Candidato candidato = new Candidato(candidatoDto.getId(), candidatoDto.getNombre(), candidatoDto.getApellido(),
+				candidatoDto.getTipo(), candidatoDto.getNumDocumento(), candidatoDto.getDireccion(), candidatoDto.getRedSocial(),
+				candidatoDto.getTitulo(), candidatoDto.getDescripcion());
 
 		candidatoExperienciaService.deleteCandidato(candidato);
 		candidatoRepository.deleteById(id);

@@ -53,7 +53,7 @@ class CandidatoExperienciaControllerTest {
     @BeforeEach
     void setUp() {
 
-        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com");
+        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook");
         tecnologia = new Tecnologia(1l, "java", 8);
         candidatoExperienciaDto = new CandidatoExperienciaDto(1l, candidato, tecnologia, 5);
         candidatoExperiencia = new CandidatoExperiencia(1l, candidato, tecnologia, 5);

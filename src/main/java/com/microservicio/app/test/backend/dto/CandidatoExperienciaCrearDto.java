@@ -7,6 +7,8 @@ import com.microservicio.app.test.backend.entity.Tecnologia;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @AllArgsConstructor @NoArgsConstructor
 public class CandidatoExperienciaCrearDto {
@@ -15,10 +17,12 @@ public class CandidatoExperienciaCrearDto {
 	private Candidato candidato;
 	private Tecnologia tecnologia;
 	private Integer experiencia;
+	private String fechaDesde;
+	private String fechaHasta;
 	
 	public CandidatoExperiencia toCandidato()
 	{
-		return new CandidatoExperiencia(this.getId(), this.getCandidato(), this.getTecnologia(), this.getExperiencia());
+		return new CandidatoExperiencia(this.getId(), this.getCandidato(), this.getTecnologia(), this.getExperiencia(), this.getFechaDesde(), this.fechaHasta);
 	}
 
 }

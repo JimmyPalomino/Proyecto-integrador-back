@@ -1,14 +1,6 @@
 package com.microservicio.app.test.backend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import lombok.*;
@@ -35,6 +27,14 @@ public class CandidatoExperiencia {
 	
 	@NotNull(message = "la experiencia de la tecnologia no puede ser null")
 	private Integer experiencia;
+
+	@NotNull(message = "la fecha desde no puede ser null")
+	@Column(name = "fecha_desde")
+	private String fechaDesde;
+
+	@NotNull(message = "la fecha hasta no puede ser null")
+	@Column(name = "fecha_hasta")
+	private String fechaHasta;
 
 	public CandidatoExperiencia(Candidato candidato, Tecnologia tecnologia, Integer experiencia) {
 	

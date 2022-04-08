@@ -12,13 +12,13 @@ insert into tecnologia (nombre,version) values ('hibernate',15);
 insert into tecnologia (nombre,version) values ('python',13);
 insert into tecnologia (nombre,version) values ('spring',13);
 
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (1,1,3);
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (1,2,5);
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (2,4,7);
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (3,1,3);
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (3,2,4);
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (3,3,1);
-insert into candidato_experiencia (candidato,tecnologia,experiencia) values (3,4,9);
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (1,1,3,'8/4/2022','15/4/2022');
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (1,2,5,'8/4/2022','15/4/2022');
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (2,4,7,'8/4/2022','15/4/2022');
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (3,1,3,'8/4/2022','15/4/2022');
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (3,2,4,'8/4/2022','15/4/2022');
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (3,3,1,'8/4/2022','15/4/2022');
+insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta) values (3,4,9,'8/4/2022','15/4/2022');
 
 insert into usuario (nombre,clave) values ('juan','$2a$10$80F2qidWCjSayA5FzJz1A.U9PWUscHphARq9UU64XO1HxOxmyXKg6');
 insert into usuario (nombre,clave) values ('jimmy','$2a$10$FLnjWOM0gUJpwLrK2fZEceYgGZ1c3rwt00cxBQH9D2pnczWLo//v2');

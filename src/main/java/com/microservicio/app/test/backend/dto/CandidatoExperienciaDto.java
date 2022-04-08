@@ -18,6 +18,8 @@ public class CandidatoExperienciaDto {
 	private Candidato candidato;
 	private Tecnologia tecnologia;
 	private Integer experiencia;
+	private String fechaDesde;
+	private String fechaHasta;
 	
 	public CandidatoExperienciaDto(CandidatoExperiencia c)
 	{

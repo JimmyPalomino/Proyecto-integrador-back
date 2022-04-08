@@ -33,7 +33,8 @@ public class CandidatoExperienciaServiceImple implements CandidatoExperienciaSer
 		TecnologiaDto tecnologiaDto = tecnologiaServicio.findByNombre(nombre);	
 		Tecnologia tecnologia = new Tecnologia(tecnologiaDto.getId(),tecnologiaDto.getNombre(),tecnologiaDto.getVersion()); 
 			
-		return repo.findByTecnologia(tecnologia).stream().map(t -> new CandidatoExperienciaDto(t.getId(), t.getCandidato(), t.getTecnologia(), t.getExperiencia(), t.getFechaDesde(), t.getFechaHasta())).collect(Collectors.toList());
+		return repo.findByTecnologia(tecnologia).stream().map(t -> new CandidatoExperienciaDto(t.getId(), t.getCandidato(), t.getTecnologia(), t.getExperiencia(), t.getFechaDesde(), t.getFechaHasta(),
+				t.getEmpresa(), t.getCargo(), t.getDireccion())).collect(Collectors.toList());
 					
 	}
 
@@ -57,7 +58,7 @@ public class CandidatoExperienciaServiceImple implements CandidatoExperienciaSer
 	@Override
 	public List<CandidatoExperienciaDto> findAll() {
 		
-		return repo.findAll().stream().map(c -> new CandidatoExperienciaDto(c.getId(), c.getCandidato(), c.getTecnologia(), c.getExperiencia(), c.getFechaDesde(), c.getFechaHasta())).collect(Collectors.toList());
+		return repo.findAll().stream().map(c -> new CandidatoExperienciaDto(c.getId(), c.getCandidato(), c.getTecnologia(), c.getExperiencia(), c.getFechaDesde(), c.getFechaHasta(), c.getEmpresa(), c.getCargo(), c.getDireccion())).collect(Collectors.toList());
 		
 	}
 

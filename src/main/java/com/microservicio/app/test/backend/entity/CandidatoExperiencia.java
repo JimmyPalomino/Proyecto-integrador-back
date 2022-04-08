@@ -36,6 +36,10 @@ public class CandidatoExperiencia {
 	@Column(name = "fecha_hasta")
 	private String fechaHasta;
 
+	private String empresa;
+	private String cargo;
+	private String direccion;
+
 	public CandidatoExperiencia(Candidato candidato, Tecnologia tecnologia, Integer experiencia) {
 	
 		this.candidato = candidato;

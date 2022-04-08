@@ -19,10 +19,14 @@ public class CandidatoExperienciaCrearDto {
 	private Integer experiencia;
 	private String fechaDesde;
 	private String fechaHasta;
+	private String empresa;
+	private String cargo;
+	private String direccion;
 	
 	public CandidatoExperiencia toCandidato()
 	{
-		return new CandidatoExperiencia(this.getId(), this.getCandidato(), this.getTecnologia(), this.getExperiencia(), this.getFechaDesde(), this.fechaHasta);
+		return new CandidatoExperiencia(this.getId(), this.getCandidato(), this.getTecnologia(), this.getExperiencia(), this.getFechaDesde(), this.fechaHasta,
+				this.getEmpresa(), this.getCargo(), this.getDireccion());
 	}
 
 }

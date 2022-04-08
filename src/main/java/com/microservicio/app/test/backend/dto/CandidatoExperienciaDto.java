@@ -20,6 +20,9 @@ public class CandidatoExperienciaDto {
 	private Integer experiencia;
 	private String fechaDesde;
 	private String fechaHasta;
+	private String empresa;
+	private String cargo;
+	private String direccion;
 	
 	public CandidatoExperienciaDto(CandidatoExperiencia c)
 	{

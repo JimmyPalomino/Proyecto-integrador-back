@@ -20,11 +20,8 @@ insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde,
 insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta, empresa, cargo, direccion) values (3,3,1,'8/4/2022','15/4/2022', 'vates', 'desarrollador', 'Buenos Aires - Capital Federal');
 insert into candidato_experiencia (candidato,tecnologia,experiencia,fecha_desde, fecha_hasta, empresa, cargo, direccion) values (3,4,9,'8/4/2022','15/4/2022', 'vates', 'desarrollador', 'Buenos Aires - Capital Federal');
 
-insert into usuario (nombre,clave) values ('juan','$2a$10$80F2qidWCjSayA5FzJz1A.U9PWUscHphARq9UU64XO1HxOxmyXKg6');
 insert into usuario (nombre,clave) values ('jimmy','$2a$10$FLnjWOM0gUJpwLrK2fZEceYgGZ1c3rwt00cxBQH9D2pnczWLo//v2');
 
 insert into role (nombre) values ('ADMIN');
-insert into role (nombre) values ('USER');
 
 insert into usuario_roles (usuario_id, roles_id) values (1,1);
-insert into usuario_roles (usuario_id, roles_id) values (2,2);

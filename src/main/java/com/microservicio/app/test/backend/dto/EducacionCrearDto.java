@@ -1,5 +1,6 @@
 package com.microservicio.app.test.backend.dto;
 
+import com.microservicio.app.test.backend.entity.Candidato;
 import com.microservicio.app.test.backend.entity.Educacion;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,10 +18,12 @@ public class EducacionCrearDto {
     private String carrera;
     private String fechaDesde;
     private String fechaHasta;
+    private Candidato candidato;
 
-    public Educacion toTecnologia(){
+    public Educacion toEducacion(){
 
-        return new Educacion(this.getId(), this.getNombreUniversidad(), this.getCarrera(), this.getFechaDesde(), this.getFechaHasta());
+        return new Educacion(this.getId(), this.getNombreUniversidad(), this.getCarrera(), this.getFechaDesde(), this.getFechaHasta(),
+                this.getCandidato());
     }
 
 

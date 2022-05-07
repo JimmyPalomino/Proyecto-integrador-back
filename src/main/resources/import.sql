@@ -25,3 +25,8 @@ insert into usuario (nombre,clave) values ('jimmy','$2a$10$FLnjWOM0gUJpwLrK2fZEc
 insert into role (nombre) values ('ADMIN');
 
 insert into usuario_roles (usuario_id, roles_id) values (1,1);
+
+insert into educacion (nombre_universidad, carrera, fecha_desde, fecha_hasta, candidato) values('UTN', 'Ing. Sistemas', '12/03/2013', '15/12/2017', 1);
+
+
+

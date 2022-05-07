@@ -1,10 +1,12 @@
 package com.microservicio.app.test.backend.controller;
 
 import com.microservicio.app.test.backend.dto.EducacionDto;
+import com.microservicio.app.test.backend.entity.Educacion;
 import com.microservicio.app.test.backend.service.EducacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +24,13 @@ public class EducacionController {
 
         return ResponseEntity.ok(educacionService.listaEducion());
     }
+
+    @GetMapping("/buscar-educacion/{id}")
+    public ResponseEntity<Educacion> buscarEducacion(@PathVariable long id){
+
+        return ResponseEntity.ok(educacionService.educacion(id));
+    }
+
+
 
 }

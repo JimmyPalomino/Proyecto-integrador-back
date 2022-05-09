@@ -54,12 +54,17 @@ public class EducacionServiceImpl implements EducacionService{
     }
 
     @Override
-    public EducacionDto updateEducacion(EducacionCrearDto educacionCrearDto) {
-        return null;
+    public EducacionDto updateEducacion(long id, EducacionCrearDto educacionCrearDto) {
+
+        this.educacion(id);
+        educacionCrearDto.setId(id);
+        return new EducacionDto(educacionRepository.save(educacionCrearDto.toEducacion()));
     }
 
     @Override
     public void deleteEducacion(long id) {
 
+        this.educacion(id);
+        educacionRepository.deleteById(id);
     }
 }

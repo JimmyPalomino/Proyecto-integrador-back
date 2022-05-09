@@ -46,6 +46,29 @@ public class EducacionController {
         return ResponseEntity.status(HttpStatus.CREATED).body(educacionService.addEducacion(educacionCrearDto));
     }
 
+    @PutMapping("educacion-modificar/{id}")
+    public ResponseEntity<EducacionDto> updateEducacion(@PathVariable long id,
+                                                        @RequestBody EducacionCrearDto educacionCrearDto,
+                                                        BindingResult result){
+
+        if (result.hasErrors()) {
+            throw new InvalidDataException(result);
+        }
+
+        log.info("Actualizando la educacion con id " + id);
+        return ResponseEntity.ok(educacionService.updateEducacion(id, educacionCrearDto));
+
+    }
+
+    @DeleteMapping("educacion-eliminar/{id}")
+    public ResponseEntity<?> eleiminarEducacion(@PathVariable long id){
+
+        educacionService.deleteEducacion(id);
+
+        log.info("Eliminar educacion con id " + id);
+        return ResponseEntity.ok().build();
+    }
+
 
 
 }

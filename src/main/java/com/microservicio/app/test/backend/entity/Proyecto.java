@@ -14,7 +14,9 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
     private String titulo;
+    @Column
     private String descripcion;
     @OneToOne
     @JoinColumn(name = "candidato")

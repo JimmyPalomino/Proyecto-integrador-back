@@ -25,7 +25,7 @@ import com.microservicio.app.test.backend.exception.InvalidDataException;
 import com.microservicio.app.test.backend.service.CandidatoExperienciaService;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class CandidatoExperienciaController {
 	
 	private static final Log log = LogFactory.getLog(CandidatoExperienciaController.class);
@@ -40,7 +40,7 @@ public class CandidatoExperienciaController {
 		return ResponseEntity.ok(servicio.findAll());
 	}
 	
-	@GetMapping("buscar-tecnologia-candidato/{nombre}")
+	@GetMapping("/buscar-tecnologia-candidato/{nombre}")
 	public ResponseEntity<List<CandidatoExperienciaDto>> buscarcandidato(@PathVariable String nombre)
 	{
 		log.info("Buscando los candidatos por Tecnologia con el nombre " + nombre);
@@ -73,7 +73,7 @@ public class CandidatoExperienciaController {
 		
 	}
 	
-	@DeleteMapping("/eleiminar-experiencia/{id}")
+	@DeleteMapping("/eliminar-experiencia/{id}")
 	public ResponseEntity<?> eleiminarExperiencia(@PathVariable Long id)
 	{
 		servicio.deleteCandidatoExperiencia(id);

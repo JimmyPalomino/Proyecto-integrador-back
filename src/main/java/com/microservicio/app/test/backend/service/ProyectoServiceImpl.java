@@ -28,7 +28,7 @@ public class ProyectoServiceImpl implements ProyectoService{
         List<Proyecto> listaProyecto = proyectoRepository.findAll();
 
         return listaProyecto.stream().map(proyecto -> new ProyectoDto(proyecto.getId(),
-                proyecto.getTitulo(), proyecto.getDescripcion(), proyecto.getCandidato()))
+                proyecto.getTitulo(), proyecto.getDescripcion(), proyecto.getCandidato(), proyecto.getFechaRealizacion()))
                 .collect(Collectors.toList());
 
     }

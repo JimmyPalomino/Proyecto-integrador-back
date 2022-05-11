@@ -18,7 +18,7 @@ public class Educacion {
     private String carrera;
     @Column(name = "fecha_desde")
     private String fechaDesde;
-    @Column(name = "fecha_hasta")
+    @Column
     private String fechaHasta;
 
     @OneToOne

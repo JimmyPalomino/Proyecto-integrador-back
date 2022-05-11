@@ -32,8 +32,7 @@ public class CandidatoExperiencia {
 	@Column(name = "fecha_desde")
 	private String fechaDesde;
 
-	@NotNull(message = "la fecha hasta no puede ser null")
-	@Column(name = "fecha_hasta")
+	@Column
 	private String fechaHasta;
 
 	private String empresa;

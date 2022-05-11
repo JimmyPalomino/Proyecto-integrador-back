@@ -40,8 +40,10 @@ public class Candidato {
 	@Column(name = "redes_social")
 	private String redSocial;
 
+	@Column
 	private String titulo;
-
+    @Column( length = 5000)
+	@Size(max = 5000)
 	private String descripcion;
 	
 

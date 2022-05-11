@@ -13,11 +13,13 @@ public class ProyectoDto {
     private String titulo;
     private String descripcion;
     private Candidato candidato;
+    private String fechaRealizacion;
 
     public ProyectoDto(Proyecto proyecto){
         this.id = proyecto.getId();
         this.titulo = proyecto.getTitulo();
         this.descripcion = proyecto.getDescripcion();
         this.candidato = proyecto.getCandidato();
+        this.fechaRealizacion = proyecto.getFechaRealizacion();
     }
 }

@@ -15,9 +15,10 @@ public class ProyectoCrearDto {
     private String titulo;
     private String descripcion;
     private Candidato candidato;
+    private String fechaRealizacion;
 
     public Proyecto toProyecto(){
 
-        return new Proyecto(this.getId(), this.getTitulo(), this.getDescripcion(), this.getCandidato());
+        return new Proyecto(this.getId(), this.getTitulo(), this.getDescripcion(), this.getCandidato(), this.fechaRealizacion);
     }
 }

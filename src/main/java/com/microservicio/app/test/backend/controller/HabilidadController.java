@@ -36,7 +36,7 @@ public class HabilidadController {
         return ResponseEntity.ok(habilidadService.buscarHabilidadId(id));
     }
 
-    @PostMapping("agregar-habilidad")
+    @PostMapping("/agregar-habilidad")
     public ResponseEntity<HabilidadDto> listaHabilidad(@Valid @RequestBody HabilidadCrearDto habilidadCrearDto,
                                                        BindingResult bindingResult ){
 
@@ -49,7 +49,7 @@ public class HabilidadController {
 
     }
 
-    @PutMapping("modificar-habilidad/{id}")
+    @PutMapping("/modificar-habilidad/{id}")
     public ResponseEntity<HabilidadDto> listaHabilidad(@PathVariable long id, @Valid @RequestBody HabilidadCrearDto habilidadCrearDto,
                                                        BindingResult bindingResult ) {
 
@@ -62,7 +62,7 @@ public class HabilidadController {
 
     }
 
-    @DeleteMapping("educacion-habilidad/{id}")
+    @DeleteMapping("/educacion-habilidad/{id}")
     public ResponseEntity<?> eleiminarEducacion(@PathVariable long id){
 
         habilidadService.deletedHabilidad(id);

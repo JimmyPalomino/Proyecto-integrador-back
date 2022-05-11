@@ -22,3 +22,5 @@ insert into usuario_roles (usuario_id, roles_id) values (1,1);
 insert into educacion (nombre_universidad, carrera, fecha_desde, fecha_hasta, candidato) values('UTN', 'Ing. Sistemas', '12/03/2013', '15/12/2017', 1);
 
 insert into proyecto (titulo, descripcion, candidato) values('monitoreo','monitorear el proyecto de seguridad del sistema de ventas', 1);
+
+insert into habilidad (nombre, progreso, candidato) values('Java EE','78',1);

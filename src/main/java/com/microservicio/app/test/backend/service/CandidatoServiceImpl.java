@@ -32,7 +32,7 @@ public class CandidatoServiceImpl implements CandidatoService {
 
 		return candidatos.stream()
 				.map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo(), c.getNumDocumento(), c.getDireccion(),
-						c.getRedSocial(), c.getTitulo(), c.getDescripcion()))
+						c.getRedSocial(), c.getTitulo(), c.getDescripcion(), c.getProfileImage()))
 				.collect(Collectors.toList());
 
 	}
@@ -41,7 +41,7 @@ public class CandidatoServiceImpl implements CandidatoService {
 	public CandidatoDto findById(Long id) {
 
 		Optional<CandidatoDto> candidato = candidatoRepository.findById(id).map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo() , c.getNumDocumento(), c.getDireccion(),
-				c.getRedSocial(), c.getTitulo(), c.getDescripcion()));
+				c.getRedSocial(), c.getTitulo(), c.getDescripcion(), c.getProfileImage()));
 		
 		if (candidato.isEmpty()) {
 			throw new NoSuchElementException("No existe candidato con el id: " + id);
@@ -76,7 +76,7 @@ public class CandidatoServiceImpl implements CandidatoService {
 		CandidatoDto candidatoDto = this.findById(id);
 		Candidato candidato = new Candidato(candidatoDto.getId(), candidatoDto.getNombre(), candidatoDto.getApellido(),
 				candidatoDto.getTipo(), candidatoDto.getNumDocumento(), candidatoDto.getDireccion(), candidatoDto.getRedSocial(),
-				candidatoDto.getTitulo(), candidatoDto.getDescripcion());
+				candidatoDto.getTitulo(), candidatoDto.getDescripcion(), candidatoDto.getProfileImage());
 
 		candidatoExperienciaService.deleteCandidato(candidato);
 		candidatoRepository.deleteById(id);

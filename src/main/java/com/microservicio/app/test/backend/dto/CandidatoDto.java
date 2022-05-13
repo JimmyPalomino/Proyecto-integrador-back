@@ -23,6 +23,7 @@ public class CandidatoDto {
 	private String redSocial;
 	private String titulo;
 	private String descripcion;
+	private String profileImage;
 	
 	public CandidatoDto(Candidato c) {
 		
@@ -35,6 +36,7 @@ public class CandidatoDto {
 		this.redSocial = c.getRedSocial();
 		this.titulo = c.getTitulo();
 		this.descripcion = c.getDescripcion();
+		this.profileImage = c.getProfileImage();
 	}
 
 }

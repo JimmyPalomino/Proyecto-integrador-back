@@ -36,9 +36,9 @@ class CandidatoServiceImplTest {
     @BeforeEach
     void setUp() {
 
-        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook");
+        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
         candidatoDto = null;
-        candidatoCrearDto = new CandidatoCrearDto(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook");
+        candidatoCrearDto = new CandidatoCrearDto(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
 
     }
 

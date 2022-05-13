@@ -18,11 +18,13 @@ public class CandidatoCrearDto {
 	private String redSocial;
 	private String titulo;
 	private String descripcion;
+	private String profileImage;
 		
 	public Candidato toCandidato()
 	{
 		return new Candidato(this.getId(), this.getNombre(), this.getApellido(), this.getTipo(),
-				this.getNumDocumento(), this.getDireccion(), this.getRedSocial(),this.getTitulo(), this.getDescripcion());
+				this.getNumDocumento(), this.getDireccion(), this.getRedSocial(),this.getTitulo(),
+				this.getDescripcion(), this.getProfileImage());
 	}
 
 }

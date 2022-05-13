@@ -49,8 +49,8 @@ class CandidatoControllerTest {
     @BeforeEach
     void setUp() {
 
-        candidatoDto = new CandidatoDto(1l, NOMBRE_CANDIDATO, "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook");
-        candidatoCrearDto = new CandidatoCrearDto(1l, NOMBRE_CANDIDATO, "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook");
+        candidatoDto = new CandidatoDto(1l, NOMBRE_CANDIDATO, "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+        candidatoCrearDto = new CandidatoCrearDto(1l, NOMBRE_CANDIDATO, "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
 
         objectMapper = new ObjectMapper();
     }

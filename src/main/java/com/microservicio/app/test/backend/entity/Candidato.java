@@ -45,6 +45,9 @@ public class Candidato {
     @Column( length = 5000)
 	@Size(max = 5000)
 	private String descripcion;
+
+	@Column(name = "profile_image")
+	private String profileImage;
 	
 
 }

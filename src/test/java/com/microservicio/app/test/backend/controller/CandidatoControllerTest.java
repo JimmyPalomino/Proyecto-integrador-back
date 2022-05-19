@@ -1,10 +1,8 @@
 package com.microservicio.app.test.backend.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microservicio.app.test.backend.dto.CandidatoCrearDto;
 import com.microservicio.app.test.backend.dto.CandidatoDto;
-import com.microservicio.app.test.backend.entity.TipoDocumento;
 import com.microservicio.app.test.backend.service.CandidatoService;
 import com.microservicio.app.test.backend.service.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,14 +12,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -49,8 +45,8 @@ class CandidatoControllerTest {
     @BeforeEach
     void setUp() {
 
-        candidatoDto = new CandidatoDto(1l, NOMBRE_CANDIDATO, "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
-        candidatoCrearDto = new CandidatoCrearDto(1l, NOMBRE_CANDIDATO, "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+        candidatoDto = new CandidatoDto(1l, NOMBRE_CANDIDATO, "perez","calle falsa 123","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+        candidatoCrearDto = new CandidatoCrearDto(1l, NOMBRE_CANDIDATO, "perez","calle falsa 123","Analista de sistemas","desarrollador en java en proyecto de facebook","");
 
         objectMapper = new ObjectMapper();
     }

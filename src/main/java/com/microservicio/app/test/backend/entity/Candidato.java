@@ -25,25 +25,15 @@ public class Candidato {
 	@Column(nullable = false)
 	@Size(min = 4, message = "El nombre debe tener minimo 4 caracteres")
 	private String apellido;
-	
-	@NotNull(message = "tipo de documento no puede ser null")
-	@OneToOne
-	@JoinColumn(name = "tipo")
-	private TipoDocumento tipo;
-	
-	@NotNull(message = "numero de documento no puede ser null")
-	@Column(name = "numero_documento", length = 8)
-	@Size(min = 8, message = "El numero de documento debe tener 8 caracteres")
-	private String numDocumento;
 
+	@Column
 	private String direccion;
-	@Column(name = "redes_social")
-	private String redSocial;
+
 
 	@Column
 	private String titulo;
-    @Column( length = 5000)
-	@Size(max = 5000)
+    @Column( length = 8000)
+	@Size(max = 8000)
 	private String descripcion;
 
 	@Column(name = "profile_image")

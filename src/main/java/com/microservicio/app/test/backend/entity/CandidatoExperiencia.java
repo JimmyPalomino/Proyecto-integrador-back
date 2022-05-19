@@ -16,17 +16,9 @@ public class CandidatoExperiencia {
 	private Long id;	
 	
 	@NotNull(message = "el candidato no puede ser null")
-	@ManyToOne(fetch = FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name = "candidato")
 	private Candidato candidato;
-	
-	@NotNull(message = "la tecnologia no puede ser null")
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="tecnologia")
-	private Tecnologia tecnologia;
-	
-	@NotNull(message = "la experiencia de la tecnologia no puede ser null")
-	private Integer experiencia;
 
 	@NotNull(message = "la fecha desde no puede ser null")
 	@Column(name = "fecha_desde")
@@ -39,18 +31,12 @@ public class CandidatoExperiencia {
 	private String cargo;
 	private String direccion;
 
-	public CandidatoExperiencia(Candidato candidato, Tecnologia tecnologia, Integer experiencia) {
+	public CandidatoExperiencia(Candidato candidato) {
 	
 		this.candidato = candidato;
-		this.tecnologia = tecnologia;
-		this.experiencia = experiencia;
 	}
 
-	public CandidatoExperiencia(Tecnologia tecnologia, Integer experiencia) {
-	
-		this.tecnologia = tecnologia;
-		this.experiencia = experiencia;
-	}
+
 		
 
 }

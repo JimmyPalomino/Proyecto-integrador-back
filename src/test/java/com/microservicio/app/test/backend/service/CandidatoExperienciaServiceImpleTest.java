@@ -2,17 +2,14 @@ package com.microservicio.app.test.backend.service;
 
 import com.microservicio.app.test.backend.dto.CandidatoExperienciaCrearDto;
 import com.microservicio.app.test.backend.dto.CandidatoExperienciaDto;
-import com.microservicio.app.test.backend.dto.TecnologiaDto;
 import com.microservicio.app.test.backend.entity.*;
 import com.microservicio.app.test.backend.repository.CandidatoExperienciaRepository;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.dao.DuplicateKeyException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,16 +31,15 @@ class CandidatoExperienciaServiceImpleTest {
     private CandidatoExperienciaDto candidatoExperienciaDto;
     private CandidatoExperiencia candidatoExperiencia;
     private Candidato candidato;
-    private Tecnologia tecnologia;
     private CandidatoExperienciaCrearDto candidatoExperienciaCrearDto;
 
     @BeforeEach
     void setUp() {
-        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
-        tecnologia = new Tecnologia(1l, "java", 8);
-        candidatoExperienciaDto = new CandidatoExperienciaDto(1l, candidato, tecnologia, 5, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
-        candidatoExperiencia = new CandidatoExperiencia(1l, candidato, tecnologia, 5, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
-        candidatoExperienciaCrearDto = new CandidatoExperienciaCrearDto(1l, candidato, tecnologia, 5, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
+        candidato = new Candidato(1l, "pepe", "perez","calle falsa 123","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+
+        candidatoExperienciaDto = new CandidatoExperienciaDto(1l, candidato,"7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
+        candidatoExperiencia = new CandidatoExperiencia(1l, candidato,"7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
+        candidatoExperienciaCrearDto = new CandidatoExperienciaCrearDto(1l, candidato, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
     }
 
     @Test
@@ -52,9 +48,7 @@ class CandidatoExperienciaServiceImpleTest {
         when(candidatoExperienciaRepository.save(candidatoExperiencia)).thenReturn(candidatoExperiencia);
         candidatoExperienciaDto = candidatoExperienciaService.addCandidatoExperiencia(candidatoExperienciaCrearDto);
 
-        assertEquals(5, candidatoExperienciaDto.getExperiencia());
-
-        candidatoExperienciaCrearDto.setExperiencia(0);
+        assertEquals("vates", candidatoExperienciaDto.getEmpresa());
 
         assertThrows(IllegalArgumentException.class, ()->{
             candidatoExperienciaService.addCandidatoExperiencia(candidatoExperienciaCrearDto);
@@ -78,13 +72,11 @@ class CandidatoExperienciaServiceImpleTest {
         when(candidatoExperienciaRepository.findById(1l)).thenReturn(Optional.of(candidatoExperiencia));
         when(candidatoExperienciaRepository.save(candidatoExperiencia)).thenReturn(candidatoExperiencia);
 
-        assertEquals(5, candidatoExperienciaService.updateCandidatoExperiencia(1l, candidatoExperienciaCrearDto).getExperiencia());
+        assertEquals("vates", candidatoExperienciaService.updateCandidatoExperiencia(1l, candidatoExperienciaCrearDto).getEmpresa());
 
         assertThrows( NoSuchElementException.class, ()->{
             candidatoExperienciaService.updateCandidatoExperiencia(2l, candidatoExperienciaCrearDto);
         });
-
-        candidatoExperienciaCrearDto.setExperiencia(0);
 
         assertThrows( IllegalArgumentException.class, ()->{
             candidatoExperienciaService.updateCandidatoExperiencia(1l, candidatoExperienciaCrearDto);

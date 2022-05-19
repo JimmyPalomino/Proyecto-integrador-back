@@ -39,15 +39,7 @@ public class CandidatoExperienciaController {
 		log.info("Obteniendo todas las experiencias por candidato");
 		return ResponseEntity.ok(servicio.findAll());
 	}
-	
-	@GetMapping("/buscar-tecnologia-candidato/{nombre}")
-	public ResponseEntity<List<CandidatoExperienciaDto>> buscarcandidato(@PathVariable String nombre)
-	{
-		log.info("Buscando los candidatos por Tecnologia con el nombre " + nombre);
-		return ResponseEntity.ok(servicio.findByTecnologia(nombre));
-		
-	} 
-	
+
 	@PostMapping("/crearExperiencia")
 	public ResponseEntity<CandidatoExperienciaDto> addExperienciaCandidato(@Valid @RequestBody CandidatoExperienciaCrearDto crearCandidatoExperiencia, BindingResult result)
 	{

@@ -3,7 +3,6 @@ package com.microservicio.app.test.backend.service;
 import com.microservicio.app.test.backend.dto.CandidatoCrearDto;
 import com.microservicio.app.test.backend.dto.CandidatoDto;
 import com.microservicio.app.test.backend.entity.Candidato;
-import com.microservicio.app.test.backend.entity.TipoDocumento;
 import com.microservicio.app.test.backend.repository.CandidatoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,9 +35,9 @@ class CandidatoServiceImplTest {
     @BeforeEach
     void setUp() {
 
-        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+        candidato = new Candidato(1l, "pepe", "perez","calle falsa 123","Analista de sistemas","desarrollador en java en proyecto de facebook","");
         candidatoDto = null;
-        candidatoCrearDto = new CandidatoCrearDto(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+        candidatoCrearDto = new CandidatoCrearDto(1l, "pepe", "perez","calle falsa 123","Analista de sistemas","desarrollador en java en proyecto de facebook","");
 
     }
 

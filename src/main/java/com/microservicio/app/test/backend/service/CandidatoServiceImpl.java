@@ -31,8 +31,8 @@ public class CandidatoServiceImpl implements CandidatoService {
 		List<Candidato> candidatos = candidatoRepository.findAll();
 
 		return candidatos.stream()
-				.map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo(), c.getNumDocumento(), c.getDireccion(),
-						c.getRedSocial(), c.getTitulo(), c.getDescripcion(), c.getProfileImage()))
+				.map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(),c.getDireccion(), c.getTitulo(),
+						c.getDescripcion(), c.getProfileImage()))
 				.collect(Collectors.toList());
 
 	}
@@ -40,8 +40,8 @@ public class CandidatoServiceImpl implements CandidatoService {
 	@Override
 	public CandidatoDto findById(Long id) {
 
-		Optional<CandidatoDto> candidato = candidatoRepository.findById(id).map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getTipo() , c.getNumDocumento(), c.getDireccion(),
-				c.getRedSocial(), c.getTitulo(), c.getDescripcion(), c.getProfileImage()));
+		Optional<CandidatoDto> candidato = candidatoRepository.findById(id).map(c -> new CandidatoDto(c.getId(), c.getNombre(), c.getApellido(), c.getDireccion(),
+				c.getTitulo(), c.getDescripcion(), c.getProfileImage()));
 		
 		if (candidato.isEmpty()) {
 			throw new NoSuchElementException("No existe candidato con el id: " + id);
@@ -55,8 +55,7 @@ public class CandidatoServiceImpl implements CandidatoService {
 	public CandidatoDto addCandidatoDto(CandidatoCrearDto candidato) {
 		
 		if (candidatoRepository.exists(Example.of(candidato.toCandidato()))) {
-			throw new DuplicateKeyException("Ya existe el candidato con numero documento " + candidato.getNombre() + " "
-					+ candidato.getNumDocumento());
+			throw new DuplicateKeyException("Ya existe el candidato con numero documento " + candidato.getNombre());
 		}
 
 		return new CandidatoDto( candidatoRepository.save(candidato.toCandidato()));
@@ -75,7 +74,7 @@ public class CandidatoServiceImpl implements CandidatoService {
 
 		CandidatoDto candidatoDto = this.findById(id);
 		Candidato candidato = new Candidato(candidatoDto.getId(), candidatoDto.getNombre(), candidatoDto.getApellido(),
-				candidatoDto.getTipo(), candidatoDto.getNumDocumento(), candidatoDto.getDireccion(), candidatoDto.getRedSocial(),
+				candidatoDto.getDireccion(),
 				candidatoDto.getTitulo(), candidatoDto.getDescripcion(), candidatoDto.getProfileImage());
 
 		candidatoExperienciaService.deleteCandidato(candidato);

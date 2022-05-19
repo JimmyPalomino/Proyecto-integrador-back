@@ -42,7 +42,6 @@ class CandidatoExperienciaControllerTest {
     private CandidatoExperienciaDto candidatoExperienciaDto;
     private CandidatoExperiencia candidatoExperiencia;
     private Candidato candidato;
-    private Tecnologia tecnologia;
     private CandidatoExperienciaCrearDto candidatoExperienciaCrearDto;
 
     private ObjectMapper objectMapper;
@@ -50,11 +49,10 @@ class CandidatoExperienciaControllerTest {
     @BeforeEach
     void setUp() {
 
-        candidato = new Candidato(1l, "pepe", "perez",new TipoDocumento(1l,"DNI"),"12345678","calle falsa 123","linkedin.com","Analista de sistemas","desarrollador en java en proyecto de facebook","");
-        tecnologia = new Tecnologia(1l, "java", 8);
-        candidatoExperienciaDto = new CandidatoExperienciaDto(1l, candidato, tecnologia, 5, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
-        candidatoExperiencia = new CandidatoExperiencia(1l, candidato, tecnologia, 5, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
-        candidatoExperienciaCrearDto = new CandidatoExperienciaCrearDto(1l, candidato, tecnologia, 5, "7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
+        candidato = new Candidato(1l, "pepe", "perez","calle falsa 123","Analista de sistemas","desarrollador en java en proyecto de facebook","");
+        candidatoExperienciaDto = new CandidatoExperienciaDto(1l, candidato,"7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
+        candidatoExperiencia = new CandidatoExperiencia(1l, candidato,"7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
+        candidatoExperienciaCrearDto = new CandidatoExperienciaCrearDto(1l, candidato,"7/4/2022", "8/4/2022", "vates", "desarrollador", "Buenos Aires - Capital Federal");
 
         objectMapper = new ObjectMapper();
     }
@@ -74,20 +72,6 @@ class CandidatoExperienciaControllerTest {
 
     @Test
     @WithMockUser
-    void buscarcandidatoTest() throws Exception {
-
-        List<CandidatoExperienciaDto> experiencias = new ArrayList<>();
-        experiencias.add(candidatoExperienciaDto);
-
-        when(candidatoExperienciaService.findByTecnologia("java")).thenReturn(experiencias);
-
-        mockMvc.perform(get("/api/buscar-tecnologia-candidato/{nombre}", "java").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
-    }
-
-    @Test
-    @WithMockUser
     void addExperienciaCandidatoTest() throws Exception {
 
         when(candidatoExperienciaService.addCandidatoExperiencia(candidatoExperienciaCrearDto)).thenReturn(candidatoExperienciaDto);
@@ -99,7 +83,7 @@ class CandidatoExperienciaControllerTest {
 
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.experiencia").value(5));
+                .andExpect(jsonPath("$.empresa").value("vates"));
     }
 
     @Test
@@ -115,7 +99,7 @@ class CandidatoExperienciaControllerTest {
 
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.experiencia").value(5));
+                .andExpect(jsonPath("$.empresa").value("vates"));
     }
 
     @Test
